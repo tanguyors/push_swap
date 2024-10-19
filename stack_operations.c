@@ -29,26 +29,57 @@ void	push(t_stack *stack, int value)
 
 int	pop(t_stack *stack)
 {
-    t_node *tmp;
-    int value;
+	t_node	*tmp;
+	int		value;
 
-    if(stack == NULL)
-        return(NULL);
-    value = stack->top->value;
-    tmp = stack->top;
-    stack->top = stack->top->next;
-    stack->SIZE--;
-    free(tmp);
-    if(stack->size == 0)
-    {
-        stack->min = INT_MAX;
-        stack->max = INT_MIN;
-    }
-    else if(value == stack->min || value == stack->max)
-    {
-        udapte_stack_minmax(stack);
-    }
-    if (stack->size % 10 == 0)
+	if (stack == NULL)
+		return (NULL);
+	value = stack->top->value;
+	tmp = stack->top;
+	stack->top = stack->top->next;
+	stack->SIZE--;
+	free(tmp);
+	if (stack->size == 0)
+	{
+		stack->min = INT_MAX;
+		stack->max = INT_MIN;
+	}
+	else if (value == stack->min || value == stack->max)
+	{
+		udapte_stack_minmax(stack);
+	}
+	if (stack->size % 10 == 0)
 		initialize_chunks(stack);
-    return(value);
+	return (value);
+}
+void	sa(t_stack *stack_a);
+{
+	int tmp;
+	if (stack_a->size >= 2)
+	{
+		tmp = stack_a->top->value;
+		// Stocke la valeur du premier élément
+		stack_a->top->value = stack_a->top->next->value;
+		// Échange avec la valeur du second élément
+		stack_a->top->next->value = tmp;
+		// Met à jour la valeur du second élément
+	}
+}
+
+void	sb(t_stack *stack_b)
+{
+	int	tmp;
+
+	if (stack_b->size >= 2)
+	{
+		tmp = stack_b->top->value;
+		stack_b->top->value = stack_b->top->next->value;
+		stack_b->top->next->value = tmp;
+	}
+}
+
+void	ss(t_stack *stack_a, t_stack *stack_b)
+{
+    sa(stack_a);  // Swap sur la pile A
+    sb(stack_b);  // Swap sur la pile B
 }
