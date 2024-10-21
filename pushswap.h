@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:00:00 by torsini           #+#    #+#             */
-/*   Updated: 2024/10/21 17:32:09 by root             ###   ########.fr       */
+/*   Updated: 2024/10/21 18:18:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
+	int				chunk;
 }					t_node;
 
 typedef struct s_stack
@@ -30,7 +31,7 @@ typedef struct s_stack
 	int				max;
 }					t_stack;
 
-t_stack 			*init_stack(t_stack *stack, int value);
+t_stack 			*create_stack(void);
 int					pop(t_stack *stack);
 int 				is_valid_number(const char *str);
 int 				is_duplicate(t_stack *stack, int value);
@@ -40,7 +41,7 @@ int					calculate_cost_in_stack_b(t_stack *stack_b, int value);
 int					find_best_move(t_stack *stack_a, t_stack *stack_b);
 int     			stack_is_empty(t_stack *stack);
 
-void				push(t_stack *stack, int value);
+int					push(t_stack *stack, int value);
 void				sa(t_stack *stack_a);
 void				sb(t_stack *stack_b);
 void				ss(t_stack *stack_a, t_stack *stack_b);
@@ -60,5 +61,6 @@ void 				free_stack(t_stack *stack_to_free);
 void 				move_element_to_stack_a(t_stack *stack_a, t_stack *stack_b, int element_position);
 void 				reinsert_from_stack_b(t_stack *stack_a, t_stack *stack_b);
 void 				move_element_to_stack_b(t_stack *stack_a, t_stack *stack_b, int element_position);
+void 				assign_chunks(t_stack *stack);
 
 #endif

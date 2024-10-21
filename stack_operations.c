@@ -1,6 +1,6 @@
 #include "pushswap.h"
 
-void	push(t_stack *stack, int value)
+int	push(t_stack *stack, int value)
 {
 	t_node	*new_node;
 
@@ -24,6 +24,7 @@ void	push(t_stack *stack, int value)
 		stack->max = value;
 	if (stack->size % 10 == 0)
 		initialize_chunks(stack);
+	return(1);
 }
 
 int	pop(t_stack *stack)

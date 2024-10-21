@@ -2,37 +2,44 @@
 
 void initialize_chunks(t_stack *stack)
 {
-    if (stack == NULL || stack->size == 0)
-        return;
-    stack->chunk_size = (int)sqrt(stack->size);  // racine pour determiner un nombre de chunks
-    if (stack->chunk_size == 0)
+    if (stack->size > 0)
     {
-        stack->chunk_size = 1;
+        stack->chunk_size = (int)sqrt(stack->size);
+    }
+}
+
+void assign_chunks(t_stack *stack)
+{
+    t_node *current = stack->top;
+    int chunk_index = 0;
+    int count = 0;
+
+    while (current)
+    {
+        current->chunk = chunk_index;
+        count++;
+        if (count >= stack->chunk_size)
+        {
+            chunk_index++;
+            count = 0;
+        }
+        current = current->next;
     }
 }
 
 void push_chunk_to_stack_b(t_stack *stack_a, t_stack *stack_b, int chunk_min, int chunk_max)
 {
-    t_node *current = stack_a->top;
-    int position = 0;
+    int size = stack_a->size;
 
-    // Parcourir STACK_A et pousser les éléments appartenant au chunk dans STACK_B
-    while (current != NULL)
+    for (int i = 0; i < size; i++)
     {
-        // Si la valeur de l'élément est dans les limites du chunk, on le pousse dans STACK_B
-        if (current->value >= chunk_min && current->value <= chunk_max)
+        if (stack_a->top->chunk >= chunk_min && stack_a->top->chunk <= chunk_max)
         {
-            // Déplacer l'élément vers STACK_B
-            move_element_to_stack_b(stack_a, stack_b, position);
-
-            // Réinitialiser la recherche car STACK_A est modifiée après le push
-            current = stack_a->top;
-            position = 0;
+            pb(stack_b, stack_a);
         }
         else
         {
-            current = current->next;
-            position++;
+            ra(stack_a);
         }
     }
 }

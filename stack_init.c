@@ -6,13 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 16:36:29 by torsini           #+#    #+#             */
-/*   Updated: 2024/10/21 17:30:44 by root             ###   ########.fr       */
+/*   Updated: 2024/10/21 17:56:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-/*t_stack	*create_stack(void)
+t_stack	*create_stack(void)
 {
 	t_stack *new_stack;
 
@@ -28,9 +28,9 @@
     new_stack->max = INT_MIN; // la valeurs minimale ne pourra jamais etre en dessous de int min
     new_stack->min = INT_MAX; // la veleurs maximum ne pourra jamais etre au dessus de int max 
 	return (new_stack);
-}*/
+}
 
-t_stack *init_stack(t_stack *stack, int value)
+/*t_stack *init_stack(t_stack *stack, int value)
 {
     // Allouer la mémoire pour la nouvelle pile si elle n'existe pas encore
     stack = malloc(sizeof(t_stack));
@@ -69,7 +69,7 @@ t_stack *init_stack(t_stack *stack, int value)
     stack->max = value;
 
     return stack;
-}
+}*/
 
 
 void free_stack(t_stack *stack_to_free)
