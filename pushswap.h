@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:00:00 by torsini           #+#    #+#             */
-/*   Updated: 2024/10/21 15:14:37 by root             ###   ########.fr       */
+/*   Updated: 2024/10/21 17:32:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 	int				max;
 }					t_stack;
 
-t_stack				*create_stack(void);
+t_stack 			*init_stack(t_stack *stack, int value);
 int					pop(t_stack *stack);
 int 				is_valid_number(const char *str);
 int 				is_duplicate(t_stack *stack, int value);

@@ -39,7 +39,7 @@ int	calculate_cost_in_stack_b(t_stack *stack_b, int value)
 		if ((current->value < value && (current->next == NULL
 					|| current->next->value > value)))
 		{
-			if (postion <= size / 2)
+			if (position <= size / 2)
 				return (position);
 			else
 				return (size - position);
@@ -66,7 +66,7 @@ int	find_best_move(t_stack *stack_a, t_stack *stack_b)
 	current = stack_a->top; // demarré par le sommet de a
 	while (current != NULL)
 	{
-		cost_a = calculate_cost_in_stack_a(stack_a, i);
+		cost_a = calculate_cost_stack_a(stack_a, i);
 		cost_b = calculate_cost_in_stack_b(stack_b, current->value);
 		current_cost = cost_a + cost_b;
 		if (current_cost < best_cost)

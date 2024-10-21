@@ -65,7 +65,7 @@ int init_stack_with_args(t_stack *stack_a, int argc, char **argv)
         }
 
         // Utilisation de ta fonction `init_stack` pour ajouter l'élément
-        if (!create_stack(stack_a, (int)value))  // Assumant que init_stack insère un élément dans la pile
+        if (!init_stack(stack_a, (int)value))  // Assumant que init_stack insère un élément dans la pile
         {
             ft_putstr_fd("Error: Unable to initialize stack\n", 2);
             return (0);

@@ -7,13 +7,12 @@ void	push(t_stack *stack, int value)
 	if (stack == NULL)
 	{
 		ft_printf("stack vide");
-		return (0);
+		//return(0);
 	}
 	new_node = malloc(sizeof(t_node));
 	if (new_node == NULL)
 	{
 		ft_printf("echec allocation push");
-		return (NULL);
 	}
 	new_node->value = value;
 	new_node->next = stack->top;
@@ -33,11 +32,11 @@ int	pop(t_stack *stack)
 	int		value;
 
 	if (stack == NULL)
-		return (NULL);
+		return(0);
 	value = stack->top->value;
 	tmp = stack->top;
 	stack->top = stack->top->next;
-	stack->SIZE--;
+	stack->size--;
 	free(tmp);
 	if (stack->size == 0)
 	{
@@ -52,7 +51,7 @@ int	pop(t_stack *stack)
 		initialize_chunks(stack);
 	return (value);
 }
-void	sa(t_stack *stack_a);
+void	sa(t_stack *stack_a)
 {
 	int tmp;
 	if (stack_a->size >= 2)
