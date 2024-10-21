@@ -1,8 +1,5 @@
 #include "pushswap.h"
 
-#include "push_swap.h"
-#include "libft.h"
-
 // Vérifier si un string représente un nombre valide (avec ft_isdigit de la libft)
 int is_valid_number(const char *str)
 {
@@ -68,7 +65,7 @@ int init_stack_with_args(t_stack *stack_a, int argc, char **argv)
         }
 
         // Utilisation de ta fonction `init_stack` pour ajouter l'élément
-        if (!init_stack(stack_a, (int)value))  // Assumant que init_stack insère un élément dans la pile
+        if (!create_stack(stack_a, (int)value))  // Assumant que init_stack insère un élément dans la pile
         {
             ft_putstr_fd("Error: Unable to initialize stack\n", 2);
             return (0);

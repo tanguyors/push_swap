@@ -1,4 +1,4 @@
-#include "pushswap.c"
+#include "pushswap.h"
 
 void initialize_chunks(t_stack *stack)
 {

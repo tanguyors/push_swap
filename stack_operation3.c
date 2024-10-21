@@ -20,7 +20,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	stack_a->size--;
 	stack_b->size++;
 }
-void	move_element_to_stack_b(t_stack *stack_a, t_stack *stack_b, int element_position)
+void 	move_element_to_stack_b(t_stack *stack_a, t_stack *stack_b, int element_position)
 {
 	int	stack_size;
 	int	rotations_needed;
