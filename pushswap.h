@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: torsini <torsini@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:00:00 by torsini           #+#    #+#             */
-/*   Updated: 2024/10/18 16:32:07 by torsini          ###   ########.fr       */
+/*   Updated: 2024/10/20 11:19:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ typedef struct s_stack
 }					t_stack;
 
 t_stack				*create_stack(void);
-void				push(t_stack *stack, int value);
 int					pop(t_stack *stack);
-void				free_stack(t_stack *stack);
 
+void				push(t_stack *stack, int value);
 void				sa(t_stack *stack_a);
 void				sb(t_stack *stack_b);
 void				ss(t_stack *stack_a, t_stack *stack_b);
