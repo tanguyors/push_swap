@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 16:36:29 by torsini           #+#    #+#             */
-/*   Updated: 2024/10/19 18:57:48 by root             ###   ########.fr       */
+/*   Updated: 2024/10/21 14:09:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,6 @@ t_stack	*create_stack(void)
 	return (new_stack);
 }
 
-void initialize_chunks(t_stack *stack)
-{
-    if (stack == NULL || stack->size == 0)
-        return;
-    stack->chunk_size = (int)sqrt(stack->size);  // racine pour determiner un nombre de chunks
-    if (stack->chunk_size == 0)
-    {
-        stack->chunk_size = 1;
-    }
-}
 void free_stack(t_stack *stack_to_free)
 {
     t_node *current_node;
